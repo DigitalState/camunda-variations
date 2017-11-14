@@ -3,6 +3,8 @@
 Installs Camunda with `deployment-aware = false` and with Jsoup (jsoup.org).
 Use Jsoup to perform HTTP requests:
 
+
+Nashorn Javascript usage.  Example usage inside of a Script Implementation in a Camunda task/event/listener/input/output
 ```javascript
 with (new JavaImporter(org.jsoup))
 {
