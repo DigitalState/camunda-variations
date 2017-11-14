@@ -56,3 +56,38 @@ See: https://forum.camunda.org/t/replacing-http-connector-with-jsoup-usage/5291 
 # Install
 
 To install run: `docker-compose up -d`
+
+
+# Web Scape usage
+
+```javascript
+function getUrlAsXhtmlString(url)
+{
+  with (new JavaImporter(org.jsoup))
+  {
+    var doc = Jsoup.connect(url).get();
+    doc.outputSettings().syntax(Java.type("org.jsoup.nodes.Document.OutputSettings.Syntax").xml);
+    doc.outputSettings().charset('UTF-8');
+
+    var docString = doc.html();
+
+    return docString;
+  }
+}
+
+function generateSpinVariables(xHtmlString)
+{
+  var htmlSpin = S(xHtmlString);
+  return htmlSpin;
+}
+
+function scrape(url)
+{
+  var xHtmlString = getUrlAsXhtmlString(url);
+  return generateSpinVariables(xHtmlString);
+}
+
+var xhtml = scrape('http://myurl');
+
+var links = xhtml.xPath('//main//ul/li/a/@href').attributeList();
+```
