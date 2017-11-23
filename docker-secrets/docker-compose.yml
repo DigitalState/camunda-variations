@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  camunda:
+    build: .
+    environment:
+      JAVA_OPTS: -Djava.security.egd=file:/dev/./urandom -Duser.timezone=America/Montreal
+      MY_PASSWORD_FILE: /run/secrets/my_password
+    secrets:
+      - my_password
+    ports:
+      - "8055:8080"
+
+secrets:
+  my_password:
+    file: my_password.json
