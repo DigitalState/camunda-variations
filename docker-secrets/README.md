@@ -7,6 +7,7 @@ https://docs.docker.com/engine/swarm/secrets
 
 https://forum.camunda.org/t/using-secrets-passwords-securely-in-processes-using-docker-secrets-not-storing-passwords-in-process-variables
 
+**WARNING / NOTE**: The my_password.json file is saved in this repository for example purposes only.  DO NOT save your passwords in your SCM/GIT repositories!!!!
 
 Example Script Usage in Camunda.
 
