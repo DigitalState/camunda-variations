@@ -1,11 +1,16 @@
 # Camunda and Business Days/Hours Calendar
 
-https://github.com/dhatim/business-hours-java
-https://github.com/olejnikk/bizdays
+Business Calendar Libraries:
+- https://github.com/dhatim/business-hours-java (backup: https://github.com/StephenOTT/business-hours-java)
+- https://github.com/olejnikk/bizdays (backup: https://github.com/StephenOTT/bizdays)
 
+----
 
-http://www.javadoc.io/doc/org.dhatim/business-hours/1.0.0
+JavaDocs:
 
+- org.dhatim.businesshours: http://www.javadoc.io/doc/org.dhatim/business-hours/1.0.0
+
+----
 
 **Required: Java 8**
 
@@ -13,7 +18,7 @@ Uses Camunda 7.8.
 
 ----
 
-Script Example for determining if 
+Nashorn Javascript Script Example for determining if current Local DateTime is within Business Hours
 
 ```javascript
 with (new JavaImporter(org.dhatim.businesshours, java.time))
