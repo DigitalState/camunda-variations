@@ -21,7 +21,7 @@ with (new JavaImporter(org.dhatim.businesshours, java.time))
     var businessHours = new BusinessHours("wday{Mon-Fri} hour{9am-6pm}, wday{Sat} hour{9am-12pm}");
     var open = businessHours.isOpen(LocalDateTime.now());
 }
-execution.setVariable('isOpen', open)
+execution.setVariable('calendar', open)
 ```
 
 Dockerfile:
