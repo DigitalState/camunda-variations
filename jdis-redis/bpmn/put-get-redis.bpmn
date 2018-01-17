@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
+  <bpmn:process id="put-get-redis" name="Put-Get Redis" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1v36dv3</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1v36dv3" sourceRef="StartEvent_1" targetRef="Task_1iqtnan" />
+    <bpmn:scriptTask id="Task_1iqtnan" name="Send Data to Redis" scriptFormat="javascript" camunda:resource="deployment://sendRedis.js">
+      <bpmn:incoming>SequenceFlow_1v36dv3</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1654xh5</bpmn:outgoing>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1654xh5" sourceRef="Task_1iqtnan" targetRef="Task_1526qa9" />
+    <bpmn:scriptTask id="Task_1526qa9" name="Get Data from Redis" scriptFormat="javascript" camunda:resource="deployment://getRedis.js">
+      <bpmn:incoming>SequenceFlow_1654xh5</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0yeuj9y</bpmn:outgoing>
+    </bpmn:scriptTask>
+    <bpmn:endEvent id="EndEvent_0gaiami">
+      <bpmn:incoming>SequenceFlow_0e3y61o</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0yeuj9y" sourceRef="Task_1526qa9" targetRef="Task_1fvoc98" />
+    <bpmn:sequenceFlow id="SequenceFlow_0e3y61o" sourceRef="Task_1fvoc98" targetRef="EndEvent_0gaiami" />
+    <bpmn:userTask id="Task_1fvoc98" name="placeholder">
+      <bpmn:incoming>SequenceFlow_0yeuj9y</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0e3y61o</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="put-get-redis">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="250" y="308" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="223" y="344" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1v36dv3_di" bpmnElement="SequenceFlow_1v36dv3">
+        <di:waypoint xsi:type="dc:Point" x="286" y="326" />
+        <di:waypoint xsi:type="dc:Point" x="311" y="326" />
+        <di:waypoint xsi:type="dc:Point" x="311" y="326" />
+        <di:waypoint xsi:type="dc:Point" x="343" y="326" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="326" y="319.5" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ScriptTask_12n89os_di" bpmnElement="Task_1iqtnan">
+        <dc:Bounds x="343" y="286" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1654xh5_di" bpmnElement="SequenceFlow_1654xh5">
+        <di:waypoint xsi:type="dc:Point" x="443" y="326" />
+        <di:waypoint xsi:type="dc:Point" x="502" y="326" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="472.5" y="304.5" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ScriptTask_1x7pwet_di" bpmnElement="Task_1526qa9">
+        <dc:Bounds x="502" y="286" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0gaiami_di" bpmnElement="EndEvent_0gaiami">
+        <dc:Bounds x="823" y="308" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="796" y="347" width="90" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0yeuj9y_di" bpmnElement="SequenceFlow_0yeuj9y">
+        <di:waypoint xsi:type="dc:Point" x="602" y="326" />
+        <di:waypoint xsi:type="dc:Point" x="646" y="326" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="579" y="304.5" width="90" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0e3y61o_di" bpmnElement="SequenceFlow_0e3y61o">
+        <di:waypoint xsi:type="dc:Point" x="746" y="326" />
+        <di:waypoint xsi:type="dc:Point" x="823" y="326" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="784.5" y="304.5" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_119c1n6_di" bpmnElement="Task_1fvoc98">
+        <dc:Bounds x="646" y="286" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,23 @@
+version: '3.2'
+
+services:
+  camunda:
+    build: .
+    environment:
+      - JAVA_OPTS=-Djava.security.egd=file:/dev/./urandom -Duser.timezone=America/Montreal
+    ports:
+      - "8055:8080"
+    networks:
+      - camred
+  redisdb:
+    image: redis
+    ports:
+      - '6379:6379'
+    networks:
+      - camred
+    volumes:
+      - ./data/redis:/data
+
+networks:
+  camred:
+    driver: bridge
