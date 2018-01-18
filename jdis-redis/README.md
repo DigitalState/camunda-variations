@@ -22,3 +22,12 @@ See documentation on docker-compose service names and networks.
 ![bpmn](./docs/bpmn/put-get-redis.png)
 
 ![cockpit](./docs/cockpit.png)
+
+# How to Run:
+
+1. cd into the this directory
+1. run `docker-compose up --build`
+1. Camunda and Redis will startup
+1. Once camunda is fully deployed, you will be able to access the camunda rest api through `localhost:8055/engine-rest`.  You can access the UIs through `localhost:8055/camunda`. 
+1. Deploy through the rest api, the .BPMN and two .js files in the `./docs/bpmn` folder.
+1. Through the Tasklist UI, run the "Put-Get Redis" process definition.
