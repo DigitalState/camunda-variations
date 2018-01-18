@@ -16,3 +16,9 @@ var jedis = new Jedis("redisdb")
 
 The `"redisdb"` is the equivalent to calling `var jedis = new Jedis("localhost")`.
 See documentation on docker-compose service names and networks.
+
+# Example of Camunda Cockpit after executing the BPMN
+
+![bpmn](./docs/bpmn/put-get-redis.png)
+
+![cockpit](./docs/cockpit.png)
