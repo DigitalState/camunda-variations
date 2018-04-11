@@ -1,8 +1,12 @@
 # CSV Writer
 
+![bpmn](./bpmn/csv-writer.png)
+
 Uses the Apache Commons CSV writer to append rows to a CSV file.
 
-To run: `docker-compose up`
+The Start Event has a embedded form with 4 fields: `firstName`, `lastName`, `title`, `category`.
+
+# Docker setup 
 
 You will require a volume mapping for the location of the common CSV file.
 
@@ -16,6 +20,12 @@ See the docker-compose.yml file and line:
 Update the path on the left of the `:` with your local path.  Can be set in the Docker For Windows/Mac Settings UI.
 
 Place a output.csv file in the csv_files folder.
+
+To run: `docker-compose up`
+
+once running you can deploy the BPMN file and the csv-writer.js file through the rest api (localhost:8080/engine-rest).
+
+You can vist the Camunda web apps at: localhost:8080/camunda
 
 # csv-writer.js
 
