@@ -6,6 +6,14 @@ Uses the Apache Commons CSV writer to append rows to a CSV file.
 
 The Start Event has a embedded form with 4 fields: `firstName`, `lastName`, `title`, `category`.
 
+## Input Form:
+
+![input form](./bpmn/input-form.png)
+
+## CSV Output
+
+![csv output](./bpmn/csv-output.png)
+
 # Docker setup 
 
 You will require a volume mapping for the location of the common CSV file.
