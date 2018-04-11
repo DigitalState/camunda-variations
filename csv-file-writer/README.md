@@ -12,7 +12,7 @@ The Start Event has a embedded form with 4 fields: `firstName`, `lastName`, `tit
 
 ## CSV Output
 
-![csv output](./bpmn/csv-output.png)
+![csv output](./bpmn/csv-writer.png)
 
 # Docker setup 
 
